@@ -6,11 +6,13 @@ public class PlayerGravityTest : MonoBehaviour
 {
     [SerializeField] GameObject plane;
     [SerializeField] float gravityScale;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = this.GetComponent<Rigidbody>();
+         
     }
 
     // Update is called once per frame
@@ -28,6 +30,6 @@ public class PlayerGravityTest : MonoBehaviour
         direction.Normalize();
 
         //‰Á‘¬“x‚ð‰Á‚¦‚é
-        this.GetComponent<Rigidbody>().AddForce(gravityScale * direction, ForceMode.Acceleration);
+        rb.AddForce(gravityScale * direction, ForceMode.Acceleration);
     }
 }
